@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slot Booking System</title>
+<style>
+    body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+
+}
+
+.container {
+ max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    color: #f9f9f9;
+    background-color: #05a398;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#datePickerContainer {
+  margin-bottom: 20px;
+}
+
+#calendarContainer {
+  margin-bottom: 20px;
+}
+
+#calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.day {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: center;
+  cursor: pointer;
+}
+
+.day.selected {
+  background-color: #007bff;
+  color: white;
+}
+
+#bookSlotBtn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+#confirmation {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: white;
+  color: #05a398;
+  display: none;
+}
+
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>Slot Booking </h1>
+    <div id="datePickerContainer">
+      <label for="datePicker">Select Date:</label>
+      <input type="date" id="datePicker">
+    </div>
+
+    <div id="calendarContainer">
+      <h2>Available Time Slots:</h2>
+      <div id="calendar"></div>
+    </div>
+
+    <button id="bookSlotBtn">Book Selected Slot</button>
+
+    <div id="confirmation"></div>
+  </div>
+
+  <script>
+document.addEventListener('DOMContentLoaded', function() {
+  const datePicker = document.getElementById('datePicker');
+  const calendar = document.getElementById('calendar');
+  const bookSlotBtn = document.getElementById('bookSlotBtn');
+  const confirmation = document.getElementById('confirmation');
+
+  let selectedDate = null;
+  let selectedSlot = null;
+
+  // Sample available slots (in real use, this would come from a server)
+  const availableSlots = {
+    '2024-06-23': ['10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM'],
+    '2024-06-24': ['9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM'],
+  };
+
+  // Function to populate calendar with available slots for selected date
+  function populateCalendar(date) {
+    selectedDate = date;
+    calendar.innerHTML = '';
+
+    const slots = availableSlots[selectedDate];
+    if (!slots) {
+      calendar.innerHTML = '<p>No available slots for selected date</p>';
+      return;
+    }
+
+    slots.forEach(slot => {
+      const dayDiv = document.createElement('div');
+      dayDiv.classList.add('day');
+      dayDiv.textContent = slot;
+      dayDiv.addEventListener('click', function() {
+        selectSlot(slot, dayDiv);
+      });
+      calendar.appendChild(dayDiv);
+    });
+  }
+
+  // Function to handle slot selection
+  function selectSlot(slot, element) {
+    selectedSlot = slot;
+
+    // Remove 'selected' class from all days
+    const allDays = document.querySelectorAll('.day');
+    allDays.forEach(day => {
+      day.classList.remove('selected');
+    });
+
+    // Add 'selected' class to the clicked day
+    element.classList.add('selected');
+  }
+
+  // Function to book selected slot
+  bookSlotBtn.addEventListener('click', function() {
+    if (selectedDate && selectedSlot) {
+      confirmation.textContent = `Slot ${selectedSlot} on ${selectedDate} booked successfully!`;
+      confirmation.style.display = 'block';
+    } else {
+      alert('Please select both date and time slot before booking.');
+    }
+  });
+
+  // Event listener for date picker changes
+  datePicker.addEventListener('change', function() {
+    const selectedDate = datePicker.value;
+    populateCalendar(selectedDate);
+  });
+});
+
+  </script>
+</body>
+</html>

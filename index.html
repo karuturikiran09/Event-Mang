@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login page</title>
+<style>
+    body {
+  font-family: Arial, sans-serif;
+  background-color: #ffffff00;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+.container {
+  background-color: #05a398;
+  color: white;
+  padding: 20px;
+  border-radius: 1px;
+  box-shadow: 0 0 50px rgb(0, 0, 0);
+  width: 300px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"] {
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  background-color: #ff7b07;
+  color: #ffffff;
+  border: none;
+  padding: 10px;
+  font-size: 18px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ff8308;
+}
+
+.error-text {
+  color: #ffffff;
+  margin-top: 10px;
+  text-align: center;
+}
+
+    </style>
+</head>
+<body >
+<div class="container">
+  <form id="loginForm" class="login-form" onsubmit="handleSubmit(event)">
+    <div class="form-group">
+      <h1>Login </h1>
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" required>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required>
+    </div>
+    <br>
+    <button type="submit">Submit</button>
+  </form>
+  <p id="errorText" class="error-text"></p>
+</div>
+
+<script>
+function handleSubmit(event) {
+    event.preventDefault(); 
+    // Prevent the default form submission
+  
+    // Get the username and password from the form
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+  
+    // Example validation (you can replace this with your actual validation logic)
+    if (username === 'kiran' && password === 'karuturi' ) {
+      alert('Login successful!!');
+      window.location.href = "\home.html";
+    } else {
+      // Display error message
+      const errorText = document.getElementById('errorText');
+      errorText.innerText = 'Invalid username or password. Please try again.';
+    }
+  }
+  </script>
+</body>
+</html>

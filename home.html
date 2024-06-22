@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Management Website</title>
+    <style>
+       /* Reset and general styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #ffffff;
+    
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #05a398;
+    box-shadow: 0 0 40px rgba(1, 82, 80, 0.993);
+}
+.hcontainer{
+    
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #05a398;
+}
+
+header {
+    background-color: #ffffff;
+    color: #fff;
+    padding: 10px 0;
+}
+
+header h1 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+main {
+    padding: 20px 0;
+}
+
+section {
+    padding: 40px 0;
+}
+
+section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#hero {
+    background-image: url('.jpeg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+    padding: 100px 0;
+}
+
+#hero h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+#hero p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #ff6e3a;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #fb5234;
+}
+
+footer {
+    background-color: #ffffff;
+    color: #fff;
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    height: 5%;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ef0b0b;
+}
+
+.Bcontainer {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    color: #f9f9f9;
+    background-color: #05a398;;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="email"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    background-color: #ff6e3a;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+input[type="submit"]:hover {
+    background-color: #ff6347;
+}
+
+#message {
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fffbfb;
+}
+
+.slider-container {
+    max-width: 800px;
+    margin: 20px auto;
+    position: relative;
+}
+
+.slider {
+    display: flex;
+    overflow: hidden;
+}
+
+.slider img {
+    height: 350px;
+    width: 400px;
+    
+    transition: transform 0.5s ease;
+}
+
+button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 18px;
+    z-index: 1;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+    </style> 
+</head>
+<body>
+    <header>
+        <div class="hcontainer">
+            <h1>Welcome to Our Event Management Website</h1>
+            <nav>
+                <ul>
+                    <li><a href="logim.html">Home</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="service.html">Services</a></li>
+                    <li><a href="contant.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section id="hero">
+            <div id="bbox" class="container">
+                <h2>Plan Your Dream Event with Us</h2>
+                <p>We specialize in creating memorable experiences for weddings, corporate events, birthdays, and more!</p>
+                <br>
+
+                <div class="slider-container">
+                    <div class="slider">
+                        <img src="bg1.jpeg" alt="Image 1">
+                        <img src="bg2.jpeg" alt="Image 2">
+                        <img src="bg3.jpeg" alt="Image 3">
+                        <img src="bg4.jpeg" alt="Image 4">
+                        <img src="bg5.jpeg" alt="Image 5">
+                        <img src="bg6.jpeg" alt="Image 6">
+                        <img src="bg7.jpeg" alt="Image 7">
+                        <img src="bg8.jpeg" alt="Image 7">
+                    </div>
+                    <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+                    <button class="next" onclick="changeSlide(1)">&#10095;</button>
+                </div>
+                <h2>About Us</h2>
+                <p>Welcome to our event management company! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vehicula nulla eu erat malesuada, sit amet eleifend ipsum volutpat.</p>
+            </div>
+        </section>
+        <section>
+            <div class="Bcontainer">
+                <h2>Submit Your Details</h2>
+                <form id="dataForm" onsubmit="return validateForm() action="process_form.php" method="post"">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+        
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+        
+                    <label for="phone">Contact Number:</label>
+                    <input type="text" id="phone" name="phone" required>
+        
+                    <input type="submit" value="Submit">
+                    
+                </form>
+
+                <p id="message"></p>
+            </div>
+        </section>
+    </main>
+    
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Event Management Company. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
+<script>
+    document.getElementById('dataForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        // Get form data
+        const formData = new FormData(this);
+        const data = {};
+        formData.forEach((value, key) => {
+            data[key] = value;
+        });
+        
+        // Convert data to worksheet
+        const ws = XLSX.utils.json_to_sheet([data]);
+        const wb = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+        
+        // Save Excel file
+        const today = new Date();
+        const fileName = `form_data_${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}.xlsx`;
+        XLSX.writeFile(wb, fileName);
+        
+        alert('Form data saved to Excel file.');
+        this.reset(); // Optionally reset the form after submission
+    });
+</script>
+
+    <script>
+            // JavaScript can be added here for any interactive features
+            // This example doesn't include specific JavaScript functionality
+            console.log('Script loaded successfully!');
+
+
+
+                    let slideIndex = 0;
+                const slides = document.querySelectorAll('.slider img');
+                const totalSlides = slides.length;
+
+                    function showSlide(n) {
+                        slideIndex = (n + totalSlides) % totalSlides; // Ensure index wraps around
+                        slides.forEach(slide => slide.style.transform = `translateX(${-slideIndex * 100}%)`);
+                    }
+
+                    function changeSlide(n) {
+                        showSlide(slideIndex + n);
+                    }
+
+                    // Automatically advance slides every 3 seconds
+                    setInterval(() => {
+                    changeSlide(1);
+                    }, 3000);
+
+
+    </script>
+</body>
+</html>
